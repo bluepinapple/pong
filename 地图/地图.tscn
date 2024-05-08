@@ -1,0 +1,80 @@
+[gd_scene load_steps=13 format=3 uid="uid://c6m12idx7tome"]
+
+[ext_resource type="Texture2D" uid="uid://bidurw16trpcw" path="res://地图/wall.png" id="1_cih2d"]
+[ext_resource type="AudioStream" uid="uid://c1squcaraupx5" path="res://地图/碰墙.mp3" id="1_ysteh"]
+[ext_resource type="Script" path="res://地图/Area2D.gd" id="2_pcbg3"]
+[ext_resource type="PackedScene" uid="uid://dcubihhgnija1" path="res://球/ball.tscn" id="3_hrskw"]
+[ext_resource type="Script" path="res://地图/Area2D3.gd" id="4_qq0rp"]
+[ext_resource type="Script" path="res://地图/Area2D4.gd" id="5_tg00k"]
+[ext_resource type="PackedScene" uid="uid://dafvm0ka7s7vl" path="res://玩家/玩家1/area_2d.tscn" id="6_7hcq1"]
+[ext_resource type="PackedScene" uid="uid://dib2ofrqm7hbr" path="res://玩家/玩家2/area_2d.tscn" id="7_4e7sd"]
+[ext_resource type="PackedScene" uid="uid://bapafh2k4pbi4" path="res://计分场景/node.tscn" id="8_gffu0"]
+[ext_resource type="PackedScene" uid="uid://clpcygjllpafv" path="res://icon/icon.tscn" id="10_s3maf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2uvkj"]
+size = Vector2(20, 763)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_63nun"]
+
+[node name="地图" type="Node2D"]
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+color = Color(0, 0, 0, 1)
+
+[node name="wall" type="Sprite2D" parent="."]
+position = Vector2(576, 276)
+scale = Vector2(1, 2.725)
+texture = ExtResource("1_cih2d")
+
+[node name="ringeLift" type="Area2D" parent="."]
+script = ExtResource("2_pcbg3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ringeLift"]
+position = Vector2(0, 306.5)
+scale = Vector2(1.00185, 1.12)
+shape = SubResource("RectangleShape2D_2uvkj")
+
+[node name="ringeRight" type="Area2D" parent="."]
+script = ExtResource("2_pcbg3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ringeRight"]
+position = Vector2(1151, 320)
+scale = Vector2(1, 1.12)
+shape = SubResource("RectangleShape2D_2uvkj")
+
+[node name="ringeUp" type="Area2D" parent="."]
+script = ExtResource("4_qq0rp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ringeUp"]
+position = Vector2(577, 0)
+scale = Vector2(65.92, 1)
+shape = SubResource("RectangleShape2D_63nun")
+
+[node name="hitTheWall" type="AudioStreamPlayer" parent="ringeUp"]
+stream = ExtResource("1_ysteh")
+volume_db = -30.0
+
+[node name="ringeDown" type="Area2D" parent="."]
+position = Vector2(0, 647)
+script = ExtResource("5_tg00k")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ringeDown"]
+position = Vector2(577, 0)
+scale = Vector2(65.92, 1)
+shape = SubResource("RectangleShape2D_63nun")
+
+[node name="hitTheWall" type="AudioStreamPlayer" parent="ringeDown"]
+stream = ExtResource("1_ysteh")
+volume_db = -30.0
+
+[node name="Area2D" parent="." instance=ExtResource("6_7hcq1")]
+
+[node name="Area2D2" parent="." instance=ExtResource("7_4e7sd")]
+
+[node name="Node" parent="." instance=ExtResource("8_gffu0")]
+
+[node name="Icon" parent="." instance=ExtResource("10_s3maf")]
+
+[node name="Ball" parent="." instance=ExtResource("3_hrskw")]

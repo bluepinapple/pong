@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://bapafh2k4pbi4"]
+
+[ext_resource type="Script" path="res://计分场景/Label.gd" id="1_ws718"]
+[ext_resource type="Script" path="res://计分场景/Label2.gd" id="2_i1hgm"]
+
+[node name="Node" type="Node"]
+metadata/_edit_horizontal_guides_ = [182.0]
+metadata/_edit_vertical_guides_ = [180.0, 972.0]
+
+[node name="Label" type="Label" parent="."]
+offset_left = 180.0
+offset_top = 83.0
+offset_right = 220.0
+offset_bottom = 106.0
+scale = Vector2(2, 2)
+script = ExtResource("1_ws718")
+
+[node name="Label2" type="Label" parent="."]
+offset_left = 892.0
+offset_top = 84.0
+offset_right = 932.0
+offset_bottom = 107.0
+scale = Vector2(2, 2)
+script = ExtResource("2_i1hgm")

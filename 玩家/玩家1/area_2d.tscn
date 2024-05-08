@@ -1,0 +1,26 @@
+[gd_scene load_steps=5 format=3 uid="uid://dafvm0ka7s7vl"]
+
+[ext_resource type="Script" path="res://玩家/玩家1/Area2D.gd" id="1_1xrm5"]
+[ext_resource type="Texture2D" uid="uid://m2nb0eytbjey" path="res://地图/score.png" id="2_gfc4m"]
+[ext_resource type="AudioStream" uid="uid://dtnjbk8rxyi87" path="res://地图/qyusd-jqjsv.mp3" id="3_xwjjh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wnno3"]
+size = Vector2(16, 61)
+
+[node name="Area2D" type="Area2D"]
+position = Vector2(41, 328)
+script = ExtResource("1_1xrm5")
+scoreSpeed = 8.0
+metadata/_edit_horizontal_guides_ = [328.0]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_wnno3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.253125, 0.253125)
+texture = ExtResource("2_gfc4m")
+
+[node name="ballSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_xwjjh")
+volume_db = -20.0

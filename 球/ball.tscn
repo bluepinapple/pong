@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcubihhgnija1"]
+
+[ext_resource type="Script" path="res://球/Area2D.gd" id="1_7deup"]
+[ext_resource type="Texture2D" uid="uid://d3xgu2w1axyv3" path="res://球/Sprite-0001.png" id="2_gmr4q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_erxpl"]
+
+[node name="Ball" type="Node2D"]
+position = Vector2(576, 324)
+metadata/_edit_vertical_guides_ = [576.0]
+metadata/_edit_horizontal_guides_ = [324.0]
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_7deup")
+vec = Vector2(3, 4)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_erxpl")
+
+[node name="Sprite2D" type="Sprite2D" parent="Area2D"]
+scale = Vector2(0.071875, 0.071875)
+texture = ExtResource("2_gmr4q")
